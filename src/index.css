@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* App-level styles */
+:root {
+	--brand-green: #16a34a;
+	--brand-yellow: #facc15;
+}
+
+html, body, #root {
+	height: 100%;
+}
+
+.hero-overlay {
+	background: linear-gradient(
+		to bottom,
+		rgba(20, 83, 45, 0.55),
+		rgba(22, 163, 74, 0.4)
+	);
+}
+
+
+
+@keyframes paddy-pulse {
+	0%, 100% { transform: scale(1); }
+	50% { transform: scale(1.15); }
+}
+
+@keyframes paddy-glow {
+	0%, 100% { filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.4)); opacity: 0.8; }
+	50% { filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.8)); opacity: 1; }
+}
+
+.animate-paddy-pulse {
+	animation: paddy-pulse 3s infinite ease-in-out;
+}
+
+.animate-paddy-glow {
+	animation: paddy-glow 3s infinite ease-in-out;
+}
