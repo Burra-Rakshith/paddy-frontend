@@ -50,7 +50,7 @@ export default function Login() {
 						value={name}
 						onChange={e => setName(e.target.value)}
 						className="mt-1 w-full border border-emerald-200 rounded-xl px-4 py-3 focus:ring-4 focus:ring-emerald-100 focus:border-emerald-500 focus:outline-none transition-all"
-						placeholder="As registered"
+						placeholder="As registered name"
 					/>
 				</div>
 
@@ -71,7 +71,17 @@ export default function Login() {
 					{isLoading ? 'Accessing...' : 'Access Dashboard'}
 				</button>
 
+				<div className="pt-4 text-center">
+					<p className="text-sm text-emerald-800 font-medium">
+						New farmer? {' '}
+						<Link to="/register" className="text-emerald-600 font-bold hover:underline">
+							Create Account
+						</Link>
+					</p>
+				</div>
+
 				<div className="pt-4 text-center border-t border-emerald-50">
+
 					<Link to="/admin" className="text-sm font-bold text-emerald-800 hover:text-emerald-600 transition-colors">
 						Identify as Administrator?
 					</Link>

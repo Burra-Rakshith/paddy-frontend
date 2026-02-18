@@ -42,10 +42,6 @@ const BottomNavbar = () => {
 
                 {/* Right Side Items */}
                 <div className="flex gap-10">
-                    <NavLink to={isAuthed ? "/profile" : "/login"} className={navItemClass}>
-                        <User className="w-6 h-6" />
-                        <span className="text-[8px] font-bold uppercase tracking-widest">{isAuthed ? 'Profile' : 'Login'}</span>
-                    </NavLink>
                     <NavLink to={isAuthed ? "/notifications" : "/register"} className={navItemClass}>
                         <div className="relative">
                             <Bell className="w-6 h-6" />
@@ -55,8 +51,13 @@ const BottomNavbar = () => {
                                 </div>
                             )}
                         </div>
-                        <span className="text-[8px] font-bold uppercase tracking-widest">{isAuthed ? 'Alerts' : 'Join'}</span>
+                        <span className="text-[8px] font-bold uppercase tracking-widest">{isAuthed ? 'Alerts' : 'Alerts'}</span>
                     </NavLink>
+                    <NavLink to={isAuthed ? "/profile" : "/login"} className={navItemClass}>
+                        <User className="w-6 h-6" />
+                        <span className="text-[8px] font-bold uppercase tracking-widest">{isAuthed ? 'Profile' : 'Login'}</span>
+                    </NavLink>
+
                 </div>
 
             </div>

@@ -61,6 +61,16 @@ export default function DiseaseDetection() {
 	// Updated speak function to handle Telugu if we want to add that feature later or if requested.
 	// For now, implementing standard English speech.
 
+	const diseaseNamesTe = {
+		'Bacterial Leaf Blight': 'బ్యాక్టీరియల్ లీఫ్ బ్లైట్ (ఎండు తెగులు)',
+		'Brown Spot': 'బ్రౌన్ స్పాట్ (ఆకుమచ్చ తెగులు)',
+		'Leaf Blast': 'లీఫ్ బ్లాస్ట్ (అగ్గి తెగులు)',
+		'Leaf scald': 'లీఫ్ స్కాల్డ్ (ఆకు మాడు తెగులు)',
+		'Sheath Blight': 'షీత్ బ్లైట్ (పదగళ్లు తెగులు/కాండం కుళ్లు తెగులు)',
+		'Healthy Rice Leaf': 'ఆరోగ్యకరమైన వరి ఆకు',
+		'Not a Paddy Leaf': 'ఇది వరి ఆకు కాదు'
+	}
+
 	const isHealthy = result?.disease === 'Healthy Rice Leaf' // Fixed to match backend class name
 	const isNotLeaf = result?.disease === 'Not a Paddy Leaf'
 
@@ -146,8 +156,14 @@ export default function DiseaseDetection() {
 							<div className="flex-1 w-full">
 								<div className="flex flex-wrap justify-between items-start gap-4">
 									<div>
-										<h3 className="text-2xl font-bold text-emerald-900">{result.disease}</h3>
-										<div className="flex items-center gap-3 mt-2">
+										<h3 className="text-2xl font-bold text-emerald-900 leading-tight">
+											{result.disease}
+										</h3>
+										<p className="text-lg font-bold text-teal-700 mt-1">
+											{diseaseNamesTe[result.disease] || ''}
+										</p>
+										<div className="flex items-center gap-3 mt-3">
+
 											{!isNotLeaf && (
 												<>
 													<span className={`

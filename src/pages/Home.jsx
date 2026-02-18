@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Sprout, Bell, ShieldCheck } from 'lucide-react'
 
 const heroBackground =
-	"url('https://images.unsplash.com/photo-1728895604559-a4e16081504e?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+	"url('https://png.pngtree.com/thumb_back/fh260/background/20241029/pngtree-ripe-paddy-field-background-image-image_16467542.jpg')"
 
 export default function Home() {
 	return (
