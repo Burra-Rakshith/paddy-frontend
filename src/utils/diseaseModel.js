@@ -3,8 +3,14 @@ export async function detectDisease(file) {
 	const formData = new FormData();
 	formData.append("image", file);
 
+	// Automatically switch between local and production URLs
+	const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+	const BASE_URL = isLocal
+		? "http://127.0.0.1:8000"
+		: "https://paddy-ml-backend-production.up.railway.app";
+
 	try {
-		const response = await fetch("http://localhost:8000/predict", {
+		const response = await fetch(`${BASE_URL}/predict`, {
 			method: "POST",
 			body: formData,
 		});
@@ -22,8 +28,8 @@ export async function detectDisease(file) {
 			confidence: 0,
 			severity: "Unknown",
 			tips: {
-				en: ["Check if the ML backend is running.", "Ensure the server is accessible at http://localhost:8000"],
-				te: ["ML బ్యాకెండ్ నడుస్తుందో లేదో తనిఖీ చేయండి.", "సర్వర్ http://localhost:8000 వద్ద ఉందో లేదో నిర్ధారించుకోండి"]
+				en: ["Check if the ML backend is running.", `Ensure the server is accessible at ${BASE_URL}`],
+				te: ["ML బ్యాకెండ్ నడుస్తుందో లేదో తనిఖీ చేయండి.", `సర్వర్ ${BASE_URL} వద్ద ఉందో లేదో నిర్ధారించుకోండి`]
 			}
 		};
 	}
