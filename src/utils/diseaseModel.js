@@ -5,9 +5,7 @@ export async function detectDisease(file) {
 
 	// Automatically switch between local and production URLs
 	const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-	const BASE_URL = isLocal
-		? "http://127.0.0.1:8000"
-		: "https://paddy-ml-backend-production.up.railway.app";
+	const BASE_URL = "https://paddy-ml-backend.onrender.com";
 
 	try {
 		const response = await fetch(`${BASE_URL}/predict`, {

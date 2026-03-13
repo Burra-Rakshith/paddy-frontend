@@ -12,6 +12,7 @@ import {
 	Shield
 } from 'lucide-react'
 import { useFarmer } from '../context/FarmerContext'
+import { computeDueNotifications, defaultNotifications } from '../utils/notifications'
 
 const navLinkBase =
 	'flex items-center gap-2 px-3 py-2 rounded-md hover:bg-emerald-100 text-emerald-900'
@@ -20,8 +21,10 @@ const activeClass = 'bg-emerald-200'
 export default function Navbar() {
 	const [open, setOpen] = useState(false)
 	const navigate = useNavigate()
-	const { farmerId, logoutFarmer } = useFarmer()
+	const { farmerId, logoutFarmer, profile } = useFarmer()
 	const isAuthed = !!farmerId
+	const dueNotifications = computeDueNotifications(profile?.sowingDate, defaultNotifications)
+	const notificationCount = dueNotifications.length
 
 	function handleLogout() {
 		logoutFarmer()
@@ -53,8 +56,21 @@ export default function Navbar() {
 						</NavLink>
 						{isAuthed && (
 							<>
-								<NavLink to="/notifications" className={({ isActive }) => `${navLinkBase} ${isActive ? activeClass : ''}`}>
-									<Bell size={18} /> Notifications
+								<NavLink
+									to="/notifications"
+									className={({ isActive }) => `${navLinkBase} ${isActive ? activeClass : ''}`}
+								>
+									<div className="relative flex items-center gap-2">
+										<Bell size={18} />
+
+										{notificationCount > 0 && (
+											<span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs font-bold px-1.5 rounded-full">
+												{notificationCount}
+											</span>
+										)}
+
+										Notifications
+									</div>
 								</NavLink>
 								<NavLink to="/profile" className={({ isActive }) => `${navLinkBase} ${isActive ? activeClass : ''}`}>
 									<User size={18} /> Profile

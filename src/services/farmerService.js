@@ -1,4 +1,4 @@
-const API_URL = 'https://paddy-backend-silk.vercel.app/api/farmers';
+const API_URL = 'https://paddy-backend-silk.vercel.app/api/farmers/';
 
 export const getAllFarmers = async () => {
     const response = await fetch(`${API_URL}`);

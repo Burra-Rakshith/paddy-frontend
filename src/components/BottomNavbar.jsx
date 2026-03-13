@@ -2,10 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Info, LayoutGrid, Camera, User, Bell, Home } from 'lucide-react';
 import { useFarmer } from '../context/FarmerContext';
+import { computeDueNotifications, defaultNotifications } from '../utils/notifications'
 
 const BottomNavbar = () => {
-    const { farmerId } = useFarmer();
+    const { farmerId, logoutFarmer, profile } = useFarmer()
     const isAuthed = !!farmerId;
+    const dueNotifications = computeDueNotifications(profile?.sowingDate, defaultNotifications)
+    const notificationCount = dueNotifications.length
     const navItemClass = ({ isActive }) =>
         `flex flex-col items-center gap-1 group cursor-pointer transition-colors ${isActive ? 'text-emerald-600' : 'text-slate-400'}`;
 
@@ -47,7 +50,11 @@ const BottomNavbar = () => {
                             <Bell className="w-6 h-6" />
                             {isAuthed && (
                                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 border-2 border-white rounded-full flex items-center justify-center">
-                                    <span className="text-[6px] text-white font-bold tracking-tighter">!</span>
+                                    {notificationCount > 0 && (
+                                        <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs font-bold px-1.5 rounded-full">
+                                            {notificationCount}
+                                        </span>
+                                    )}
                                 </div>
                             )}
                         </div>

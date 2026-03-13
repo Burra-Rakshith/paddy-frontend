@@ -3,17 +3,17 @@ export default function About() {
 		{
 			title: "Stage-wise Guidance",
 			description: "Expert tips from sowing to harvest.",
-			image: "https://media.licdn.com/dms/image/v2/D562DAQEhN0JqkM25NA/profile-treasury-image-shrink_1920_1920/B56ZxMoIBZJoAc-/0/1770812118479?e=1771855200&v=beta&t=PZ5T_SWejXmzQOhPSszdK5tygtv5hTiIrkk53ERCXlc",
+			image: "/images/stage-wise.jpeg",
 		},
 		{
 			title: "Disease Detection",
 			description: "AI-powered leaf health analysis.",
-			image: "https://media.licdn.com/dms/image/v2/D5622AQGFEWmz4j9lLA/feedshare-shrink_1280/B56ZxB5OxrIEAc-/0/1770632048031?e=1772668800&v=beta&t=_V4Gf8l-emsfnpZy6gWzig7HoUjrFAHjn2h4H7g5J4Y",
+			image: "images/disease-detection.jpeg",
 		},
 		{
 			title: "Smart Notifications",
 			description: "Timely alerts for your crop cycle.",
-			image: "https://media.licdn.com/dms/image/v2/D5622AQFuxaeT3WXpQw/feedshare-shrink_1280/B56Zxm03JLIIAc-/0/1771251659642?e=1772668800&v=beta&t=whRWJQI3VXqWiPWuyWJwOBB94uFWm1BMv6ct44_0xBM",
+			image: "images/smart-notifications.jpeg",
 		},
 	]
 

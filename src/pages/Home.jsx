@@ -29,7 +29,7 @@ export default function Home() {
 				</div>
 			</div>
 			<div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6">
-				<Link to="/services" className="block p-6 bg-white rounded-lg shadow-sm border border-emerald-100 hover:shadow-md transition-shadow">
+				<Link to="/notifications" className="block p-6 bg-white rounded-lg shadow-sm border border-emerald-100 hover:shadow-md transition-shadow">
 					<div className="flex items-center gap-3">
 						<Sprout className="text-farm-green" />
 						<h3 className="font-bold text-emerald-900">Crop Guidance</h3>

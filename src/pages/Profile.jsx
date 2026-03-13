@@ -39,7 +39,7 @@ export default function Profile() {
 							<div className="text-lg text-emerald-800">{profile.paddyVariety}</div>
 						</div>
 						<div className="space-y-1">
-							<div className="text-xs font-bold text-emerald-600 uppercase tracking-wider">Sowing Date</div>
+							<div className="text-xs font-bold text-emerald-600 uppercase tracking-wider">Planting Date</div>
 							<div className="text-lg text-emerald-800">
 								{new Date(profile.sowingDate).toLocaleDateString('en-IN', {
 									day: 'numeric',
