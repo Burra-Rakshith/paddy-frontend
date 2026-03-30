@@ -16,6 +16,17 @@ export async function detectDisease(file) {
 		}
 
 		const data = await response.json();
+		
+		// If the server returns an explicit error inside a 200 OK status
+		if (data.error) {
+			throw new Error(data.error);
+		}
+		
+		// Ensure basic structure exists to prevent UI crashes
+		if (!data.tips) data.tips = { en: [], te: [] };
+		if (!data.tips.en) data.tips.en = [];
+		if (!data.tips.te) data.tips.te = [];
+		
 		return data;
 	} catch (error) {
 		console.error("Error detecting disease:", error);

@@ -39,7 +39,8 @@ export default function DiseaseDetection() {
 	function speakResult() {
 		if (!result) return
 
-		const textToSpeak = `Detected Disease: ${result.disease}. Prevention Tips: ${result.tips.en.join('. ')}`
+		const englishTips = result.tips?.en || [];
+		const textToSpeak = `Detected Disease: ${result.disease}. Prevention Tips: ${englishTips.join('. ')}`
 		const utterance = new SpeechSynthesisUtterance(textToSpeak)
 
 		// Attempt to set a Telugu voice if Telugu text is spoken (though we are speaking EN here for now)
@@ -197,7 +198,7 @@ export default function DiseaseDetection() {
 											Prevention Tips (English)
 										</h4>
 										<ul className="space-y-2">
-											{result.tips.en.map((tip, i) => (
+											{(result.tips?.en || []).map((tip, i) => (
 												<li key={i} className="flex gap-2 text-emerald-800 text-sm">
 													<span className="text-emerald-500 mt-1">•</span>
 													{tip}
@@ -212,7 +213,7 @@ export default function DiseaseDetection() {
 											నివారణ చర్యలు (Telugu)
 										</h4>
 										<ul className="space-y-2">
-											{result.tips.te.map((tip, i) => (
+											{(result.tips?.te || []).map((tip, i) => (
 												<li key={i} className="flex gap-2 text-emerald-800 text-sm">
 													<span className="text-teal-500 mt-1">•</span>
 													{tip}
