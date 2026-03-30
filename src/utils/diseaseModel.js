@@ -3,9 +3,7 @@ export async function detectDisease(file) {
 	const formData = new FormData();
 	formData.append("image", file);
 
-	// Automatically switch between local and production URLs
-	const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-	const BASE_URL = "https://paddy-ml-backend.onrender.com";
+	const BASE_URL = "https://paddy-ml-backend-production.up.railway.app";
 
 	try {
 		const response = await fetch(`${BASE_URL}/predict`, {
@@ -38,4 +36,3 @@ export async function detectDiseaseSimulated(file) {
 	console.warn("detectDiseaseSimulated is deprecated. Use detectDisease for real results.");
 	return await detectDisease(file);
 }
-
